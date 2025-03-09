@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked by PhinerX</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Ensures the content aligns vertically */
+        }
+        .container {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+        .deface-title {
+            font-size: 3em;
+            color: #ff0000;
+            text-shadow: 0 0 15px #ff0000, 0 0 25px #ff3300;
+            animation: glitch 1.5s infinite;
+        }
+        @keyframes glitch {
+            0%, 100% { transform: none; opacity: 1; }
+            10% { transform: translate(-3px, -3px); opacity: 0.8; }
+            20% { transform: translate(3px, 3px); opacity: 0.8; }
+        }
+        .deface-subtitle {
+            font-size: 2em;
+            color: #ffcc00;
+            margin: 10px 0;
+            text-shadow: 0 0 10px #ffcc00, 0 0 15px #ffcc66;
+        }
+        .terminal {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border: 1px solid #00ff00;
+            width: 80%;
+            max-width: 800px;
+            height: 200px;
+            overflow-y: hidden;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            box-shadow: 0 0 10px #00ff00, 0 0 15px #00ff33;
+        }
+        .terminal span {
+            display: block;
+        }
+        .matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .matrix div {
+            position: absolute;
+            top: -100px;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #00ff00);
+            animation: fall 5s infinite;
+            animation-delay: calc(-5s * var(--i));
+            left: calc(100vw / 30 * var(--i));
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+        .music-control {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            background: #333;
+            border: none;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.5em;
+        }
+        .music-control:hover {
+            background: #444;
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid rgba(255, 255, 255, 0.75);
+            white-space: nowrap;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        .logo {
+            width: 150px; /* Increased logo size */
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            object-fit: cover; /* Ensures the logo doesn't get stretched */
+            z-index: 2; /* Places the logo on top */
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: rgba(255, 255, 255, 0.75); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo Section (Updated to be on top) -->
+    <img src="/Black And White Minimalist Typography Personal Logo (2).gif" alt="Logo" class="logo">
+
+    <div class="overlay"></div>
+
+    <div class="matrix">
+        <div style="--i:1;"></div>
+        <div style="--i:2;"></div>
+        <div style="--i:3;"></div>
+        <div style="--i:4;"></div>
+        <div style="--i:5;"></div>
+        <div style="--i:6;"></div>
+        <div style="--i:7;"></div>
+        <div style="--i:8;"></div>
+        <div style="--i:9;"></div>
+        <div style="--i:10;"></div>
+        <div style="--i:11;"></div>
+        <div style="--i:12;"></div>
+        <div style="--i:13;"></div>
+        <div style="--i:14;"></div>
+        <div style="--i:15;"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="deface-title">Owned by Jiku</h1>
+        <h2 class="deface-subtitle">Mysterious Masterpiece 🃏✨</h2>
+        <p class="typewriter">আমরা তোমাদের সিস্টেমে আছি... শুধুমাত্র নিরাপত্তা উন্নতির জন্য বাগটি দেখানো হয়েছে... আপডেট করো!</p>
+        
+        <div class="terminal" id="terminal">
+            <span>$ nmap -p 80,443 target.com</span>
+            <span>$ sqlmap -u http://target.com --dbs</span>
+            <span>$ hydra -l admin -P passwords.txt ssh://target.com</span>
+            <span>$ sudo -l</span>
+        </div>
+    </div>
+
+    <button class="music-control" id="music-control">🔇</button>
+
+    <audio id="background-music" autoplay loop>
+        <source src="https://www.example.com/your-music-file.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const musicControl = document.getElementById('music-control');
+        const backgroundMusic = document.getElementById('background-music');
+
+        musicControl.addEventListener('click', () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                musicControl.innerText = '🔇';
+            } else {
+                backgroundMusic.pause();
+                musicControl.innerText = '🔈';
+            }
+        });
+
+        const pentestCommands = [
+            '$ nmap -p 80,443 target.com',
+            '$ sqlmap -u http://target.com --dbs',
+            '$ hydra -l admin -P passwords.txt ssh://target.com',
+            '$ msfconsole',
+            '$ exploit multi/handler',
+            '$ whoami',
+            '$ sudo -l',
+            '$ ifconfig',
+            '$ ls -la /etc/passwd',
+            '$ cat /etc/shadow'
+        ];
+
+        const terminal = document.getElementById('terminal');
+        setInterval(() => {
+            const newCommand = pentestCommands[Math.floor(Math.random() * pentestCommands.length)];
+            const newSpan = document.createElement('span');
+            newSpan.textContent = newCommand;
+            terminal.appendChild(newSpan);
+            if (terminal.childNodes.length > 8) {
+                terminal.removeChild(terminal.childNodes[0]);
+            }
+        }, 1500);
+    </script>
+</body>
+</html>
